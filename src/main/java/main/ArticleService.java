@@ -2,7 +2,6 @@ package main;
 
 import model.Article;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,24 +25,4 @@ public class ArticleService {
         return articleList.stream().filter(t-> t.getId().equals(id)).findFirst().get();
     }
 
-    public void addArticle(Article article) {
-        articleList.add(article);
-    }
-
-
-    public void updateArticle(Article art, String id) {
-
-        for(int i=0;i<articleList.size();i++)
-        {
-            Article article =articleList.get(i);
-            if(article.getId().equals(id))
-            {
-                 articleList.set(i,art);
-            }
-        }
-    }
-
-    public void deleteArticle(String id) {
-        articleList.removeIf(t->t.getId().equals(id));
-    }
 }
